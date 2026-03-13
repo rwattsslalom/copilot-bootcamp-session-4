@@ -9,7 +9,8 @@ A FastAPI application that enables Slalom consultants to register their capabili
 ## Features
 
 - View all available consulting capabilities
-- Register consultant expertise and availability
+- Create and update consultant profiles
+- Register consultant expertise and availability using consultant records
 - Track skill levels and certifications
 - Manage capability capacity and team assignments
 
@@ -18,7 +19,7 @@ A FastAPI application that enables Slalom consultants to register their capabili
 1. Install the dependencies:
 
    ```
-   pip install fastapi uvicorn
+   pip install -r ../requirements.txt
    ```
 
 2. Run the application:
@@ -37,6 +38,10 @@ A FastAPI application that enables Slalom consultants to register their capabili
 | Method | Endpoint                                                          | Description                                                         |
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/capabilities`                                                   | Get all capabilities with details and current consultant assignments |
+| GET    | `/consultants`                                                    | List consultant profiles                                             |
+| GET    | `/consultants/{email}`                                            | Retrieve a consultant profile                                        |
+| POST   | `/consultants`                                                    | Create a consultant profile                                          |
+| PUT    | `/consultants/{email}`                                            | Update a consultant profile                                          |
 | POST   | `/capabilities/{capability_name}/register?email=consultant@slalom.com` | Register consultant for a capability                     |
 | DELETE | `/capabilities/{capability_name}/unregister?email=consultant@slalom.com` | Unregister consultant from a capability              |
 
@@ -57,9 +62,11 @@ The application uses a consulting-focused data model:
 2. **Consultants** - Uses email as identifier:
    - Name
    - Practice area
-   - Skill level
-   - Certifications
-   - Availability
+   - Location
+   - Bio / summary
+   - Optional contact details
+
+Capability registrations now point to consultant records instead of storing raw email strings in the UI workflow.
 
 All data is currently stored in memory for this learning exercise. In a production environment, this would be backed by a robust database system.
 

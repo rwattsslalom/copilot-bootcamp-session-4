@@ -26,12 +26,60 @@
         </div>
       </section>
 
+      <section id="consultants-container">
+        <h3>Consultant Directory</h3>
+        <div id="consultants-list">
+          <p>Loading consultants...</p>
+        </div>
+      </section>
+
+      <section id="profile-container">
+        <h3>Consultant Profile</h3>
+        <form id="consultant-form">
+          <div class="form-group">
+            <label for="consultant-name">Name:</label>
+            <input type="text" id="consultant-name" required placeholder="Alex Morgan" />
+          </div>
+          <div class="form-group">
+            <label for="consultant-email">Email:</label>
+            <input type="email" id="consultant-email" required placeholder="alex.morgan@slalom.com" />
+          </div>
+          <div class="form-group">
+            <label for="consultant-practice-area">Practice Area:</label>
+            <select id="consultant-practice-area" required>
+              <option value="">-- Select a practice area --</option>
+              <option value="Strategy">Strategy</option>
+              <option value="Technology">Technology</option>
+              <option value="Operations">Operations</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="consultant-location">Location:</label>
+            <input type="text" id="consultant-location" required placeholder="Seattle, WA" />
+          </div>
+          <div class="form-group">
+            <label for="consultant-bio">Bio / Summary:</label>
+            <textarea id="consultant-bio" rows="4" required placeholder="Brief consulting profile summary"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="consultant-contact-details">Optional Contact Details:</label>
+            <input type="text" id="consultant-contact-details" placeholder="Slack, phone, or staffing notes" />
+          </div>
+          <div class="form-actions">
+            <button type="submit" id="consultant-submit">Create Consultant</button>
+            <button type="button" id="consultant-cancel" class="secondary hidden">Cancel Edit</button>
+          </div>
+        </form>
+      </section>
+
       <section id="register-container">
         <h3>Register Your Expertise</h3>
         <form id="register-form">
           <div class="form-group">
-            <label for="email">Consultant Email:</label>
-            <input type="email" id="email" required placeholder="your-email@slalom.com" />
+            <label for="consultant-registration">Consultant:</label>
+            <select id="consultant-registration" required>
+              <option value="">-- Select a consultant --</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="capability">Select Capability:</label>
